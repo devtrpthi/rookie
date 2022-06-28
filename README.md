@@ -1,0 +1,1 @@
+A beginner react project to search movies.
