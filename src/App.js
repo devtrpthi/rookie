@@ -15,6 +15,7 @@ const movie = {
 
 function App() {
     const [movies, setMovies] = useState([]);
+    const [searchTerm, setSearchTerm] = useState('');
 
     const searchmovies = async (title) =>{
         const response = await fetch(`${URL}&s=${title}`);
@@ -32,12 +33,12 @@ function App() {
         <div className="search">
             <input
             placeholder="Search for movies"
-            value="Superman"
-            onChange={() => {}} />
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value) } />
             <img
             src={SearchIcon}
             alt="search"
-            onClick={() => {}} />
+            onClick={() => searchmovies(searchTerm)} />
         </div>
             {
                 movies?.length > 0
